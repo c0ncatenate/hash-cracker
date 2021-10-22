@@ -2,23 +2,36 @@ import hashlib
 import itertools
 import threading
 import time
+from datetime import datetime
 import sys
 from colorama import Fore, Back
+
+
+class style:
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    END = '\033[0m'
+
 
 done = False
 
 # Headers
 
-print(Fore.RED + '░░░██╗░██╗░██╗░░██╗░█████╗░░██████╗██╗░░██╗' + Fore.BLUE + '  ░█████╗░██████╗░░█████╗░░█████╗░██╗░░██╗███████╗██████╗░')
-print(Fore.RED + '██████████╗██║░░██║██╔══██╗██╔════╝██║░░██║' + Fore.BLUE + '  ██╔══██╗██╔══██╗██╔══██╗██╔══██╗██║░██╔╝██╔════╝██╔══██╗')
-print(Fore.RED + '╚═██╔═██╔═╝███████║███████║╚█████╗░███████║' + Fore.BLUE + '  ██║░░╚═╝██████╔╝███████║██║░░╚═╝█████═╝░█████╗░░██████╔╝')
-print(Fore.RED + '██████████╗██╔══██║██╔══██║░╚═══██╗██╔══██║' + Fore.BLUE + '  ██║░░██╗██╔══██╗██╔══██║██║░░██╗██╔═██╗░██╔══╝░░██╔══██╗')
-print(Fore.RED + '╚██╔═██╔══╝██║░░██║██║░░██║██████╔╝██║░░██║' + Fore.BLUE + '  ╚█████╔╝██║░░██║██║░░██║╚█████╔╝██║░╚██╗███████╗██║░░██║')
-print(Fore.RED + '░╚═╝░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝' + Fore.BLUE + '  ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝' + Fore.RESET)
-print(Fore.RED + '''                                        Written by Arsh''' + Fore.RESET)
+print(Fore.RED + '░░░██╗░██╗  ░██╗░░██╗░█████╗░░██████╗██╗░░██╗' + Fore.BLUE + '  ░█████╗░██████╗░░█████╗░░█████╗░██╗░░██╗███████╗██████╗░')
+print(Fore.RED + '██████████╗  ██║░░██║██╔══██╗██╔════╝██║░░██║' + Fore.BLUE + '  ██╔══██╗██╔══██╗██╔══██╗██╔══██╗██║░██╔╝██╔════╝██╔══██╗')
+print(Fore.RED + '╚═██╔═██╔═╝  ███████║███████║╚█████╗░███████║' + Fore.BLUE + '  ██║░░╚═╝██████╔╝███████║██║░░╚═╝█████═╝░█████╗░░██████╔╝')
+print(Fore.RED + '██████████╗  ██╔══██║██╔══██║░╚═══██╗██╔══██║' + Fore.BLUE + '  ██║░░██╗██╔══██╗██╔══██║██║░░██╗██╔═██╗░██╔══╝░░██╔══██╗')
+print(Fore.RED + '╚██╔═██╔══╝  ██║░░██║██║░░██║██████╔╝██║░░██║' + Fore.BLUE + '  ╚█████╔╝██║░░██║██║░░██║╚█████╔╝██║░╚██╗███████╗██║░░██║')
+print(Fore.RED + '░╚═╝░╚═╝░░░  ╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝' + Fore.BLUE + '  ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝' + Fore.RESET)
+print('')
+print(Fore.RED + '                                          SHA256 Hash' + Fore.MAGENTA + ' Cracker Written ' + Fore.BLUE + 'by' + ' Arsh' + Fore.RESET)
+print('')
 
 # Get a hash input from the user
-sha256hash = input(Fore.LIGHTWHITE_EX + "[i] " + Fore.LIGHTBLUE_EX + "Please input your hash\n>")
+sha256hash = input(Fore.LIGHTWHITE_EX + "[i] " + Fore.LIGHTBLUE_EX + "Put in your password hash here\n  > " + Fore.RESET)
+print('')
+current_time = datetime.now().strftime("%H:%M:%S")
+print(Fore.LIGHTWHITE_EX + "[i] " + Fore.LIGHTMAGENTA_EX + "Cracking started: " + Fore.LIGHTWHITE_EX + current_time + '\n' + Fore.RESET)
 
 
 # here is the animation
@@ -26,7 +39,7 @@ def animate():
     for c in itertools.cycle(['...', '..', '.']):
         if done:
             break
-        sys.stdout.write('\rCracking' + c)
+        sys.stdout.write(style.BOLD + Fore.LIGHTRED_EX + '\rCracking' + c + Fore.RESET + style.END)
         sys.stdout.flush()
         time.sleep(0.1)
     sys.stdout.write('\r')
@@ -49,6 +62,7 @@ for guess in wordlist.split():
         print(Fore.LIGHTWHITE_EX + "STATUS      : " + Fore.LIGHTGREEN_EX + "CRACKED")
         print(Fore.LIGHTWHITE_EX + "GUESS       : " + Back.GREEN + Fore.LIGHTWHITE_EX + guess.decode(
             'UTF-8') + Back.RESET)
+        print(Fore.LIGHTMAGENTA_EX + "\nCracking ended: " + Fore.LIGHTWHITE_EX + current_time + Fore.RESET)
         quit()
 
     # Output if the hashes don't match
@@ -59,3 +73,4 @@ print(Fore.LIGHTWHITE_EX + "\n\nYour hash   :", Fore.MAGENTA + sha256hash + Fore
 print(Fore.LIGHTWHITE_EX + "STATUS      : " + Fore.LIGHTRED_EX + "UNCRACKED")
 print(
     Fore.LIGHTWHITE_EX + "GUESS       : " + Back.RED + Fore.LIGHTWHITE_EX + "I couldn't crack your hash, you have a strong password! :)" + Back.RESET)
+print(Fore.LIGHTMAGENTA_EX + "\nCracking ended: " + Fore.LIGHTWHITE_EX + current_time + Fore.RESET)

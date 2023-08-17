@@ -30,11 +30,10 @@ def print_end(crack, time1):  # Coda
     if crack:
         print(Fore.LIGHTRED_EX + "STATUS".ljust(10, ' ') + Fore.LIGHTWHITE_EX + ': ' + Fore.LIGHTRED_EX + Back.BLACK + "CRACK SUCCESS" + Back.RESET)
         print(Fore.LIGHTBLUE_EX + "VERDICT".ljust(10, ' ') + Fore.LIGHTWHITE_EX + ': ' + Back.RED + Fore.LIGHTWHITE_EX + str(f"'{guess.decode('UTF-8')}' is your password.  Try something stronger!") + Back.RESET)
-        print(Fore.WHITE + "\nDecryption runtime: " + str(f"{time2 - time1:5.3f}s") + Fore.RESET)
     else:
         print(Fore.LIGHTRED_EX + "STATUS".ljust(10, ' ') + Fore.LIGHTWHITE_EX + ': ' + Fore.LIGHTGREEN_EX + Back.BLACK + "CRACK FAIL" + Back.RESET)
         print(Fore.LIGHTBLUE_EX + "VERDICT".ljust(10, ' ') + Fore.LIGHTWHITE_EX + ': ' + Back.GREEN + Fore.LIGHTWHITE_EX + "I couldn't crack your hash, you have a strong password!" + Back.RESET)
-        print(Fore.WHITE + "\nDecryption runtime: " + str(f"{time2 - time1:5.3f}s") + Fore.RESET)
+    print(Fore.WHITE + "\nDecryption runtime: " + str(f"{time2 - time1:5.3f}s") + Fore.RESET)
 
 
 # Headers

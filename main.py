@@ -44,7 +44,7 @@ print(Fore.LIGHTGREEN_EX + '╚═██╔═██╔═╝' + Fore.LIGHTRED_E
 print(Fore.LIGHTGREEN_EX + '██████████╗' + Fore.LIGHTRED_EX + '  ██╔══██║██╔══██║░╚═══██╗██╔══██║' + Fore.LIGHTBLUE_EX + '  ██║░░██╗██╔══██╗██╔══██║██║░░██╗██╔═██╗░██╔══╝░░██╔══██╗')
 print(Fore.LIGHTGREEN_EX + '╚██╔═██╔══╝' + Fore.LIGHTRED_EX + '  ██║░░██║██║░░██║██████╔╝██║░░██║' + Fore.LIGHTBLUE_EX + '  ╚█████╔╝██║░░██║██║░░██║╚█████╔╝██║░╚██╗███████╗██║░░██║')
 print(Fore.LIGHTGREEN_EX + '░╚═╝░╚═╝░░░' + Fore.LIGHTRED_EX + '  ╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝' + Fore.LIGHTBLUE_EX + '  ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝' + Fore.RESET + '\n')
-print(Fore.GREEN + 'SHA256'.rjust(45, ' ') + Fore.RED + ' Hash' + Fore.BLUE + ' Cracker\n' + Fore.MAGENTA + 'Written by c0ncatenate'.rjust(56, ' ') + Fore.RESET)
+print(Fore.GREEN + 'SHA256'.rjust(45, ' ') + Fore.RED + ' Hash' + Fore.BLUE + ' Cracker\n' + Fore.MAGENTA + 'Written by: c0ncatenate'.rjust(60, ' ') + Fore.RESET)
 print(Fore.WHITE + 'For the purposes of decrypting encrypted text, via Secure Hash Algorithm 256'.rjust(88, '_').ljust(99, '_') + Fore.RESET)
 print('')
 

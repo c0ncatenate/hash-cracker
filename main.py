@@ -81,8 +81,5 @@ for guess in wordlist.split():
         print_end(True, time_start)
         quit()
 
-    # Output if the hashes don't match
-    elif hashed != sha256hash:
-        pass
 done = cracked(done)
 print_end(False, time_start)

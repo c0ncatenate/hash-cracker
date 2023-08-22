@@ -27,6 +27,7 @@ def print_end(crack, time1):  # Coda
     time2 = default_timer()
     print(Fore.LIGHTGREEN_EX + "\nINPUT".ljust(11, ' ') + Fore.LIGHTWHITE_EX + ': ' + Fore.LIGHTYELLOW_EX + Back.BLACK + sha256hash + Back.RESET)
     if crack:
+        time2 -= 2
         print(Fore.LIGHTRED_EX + "STATUS".ljust(10, ' ') + Fore.LIGHTWHITE_EX + ': ' + Fore.LIGHTRED_EX + Back.BLACK + "CRACK SUCCESS" + Back.RESET)
         print(Fore.LIGHTBLUE_EX + "VERDICT".ljust(10, ' ') + Fore.LIGHTWHITE_EX + ': ' + Back.RED + Fore.LIGHTWHITE_EX + f"'{guess.decode('UTF-8')}' is your password.  Try something stronger!" + Back.RESET)
     else:
@@ -73,7 +74,7 @@ for guess in wordlist.split():
 
     # Compare the hashes and give an output
     if hashed == sha256hash:
-        time.sleep(1)
+        time.sleep(2)
         done = cracked(done)
         print_end(True, time_start)
         quit()

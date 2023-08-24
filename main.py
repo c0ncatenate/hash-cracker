@@ -3,8 +3,8 @@ import itertools
 import sys
 import threading
 import time
-from datetime import datetime
-from timeit import default_timer
+import timeit
+import datetime
 from colorama import Fore, Back
 
 
@@ -24,7 +24,7 @@ def cracked(don):  # Cadenza
 
 
 def print_end(crack, time1):  # Coda
-    time2 = default_timer()
+    time2 = timeit.default_timer()
     print(Fore.LIGHTGREEN_EX + "\nINPUT".ljust(11, ' ') + Fore.LIGHTWHITE_EX + ': ' + Fore.LIGHTYELLOW_EX + Back.BLACK + sha256hash + Back.RESET)
     if crack:
         time2 -= 2
@@ -48,9 +48,9 @@ print(Fore.WHITE + 'For the purposes of decrypting encrypted text, via Secure Ha
 
 # Get a hash input from the user
 sha256hash = input(f'{Fore.LIGHTWHITE_EX}> {Fore.LIGHTYELLOW_EX}Encrypted Password: ')
-current_time = datetime.now().strftime("%H:%M:%S %m/%d/%Y")
+current_time = datetime.datetime.now().strftime("%H:%M:%S %m/%d/%Y")
 print(f"\n{Fore.BLACK}{Back.LIGHTWHITE_EX}Decryption initiated @ {current_time}{Back.RESET}\n")
-time_start = default_timer()
+time_start = timeit.default_timer()
 
 
 # Animated loading
